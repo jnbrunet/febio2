@@ -26,7 +26,7 @@ SOFTWARE.*/
 
 
 #pragma once
-#include "FECore/FEMaterial.h"
+#include <FECore/FEMaterial.h>
 
 //-----------------------------------------------------------------------------
 //! Base class for solid-materials.

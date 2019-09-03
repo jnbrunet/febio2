@@ -72,7 +72,7 @@ bool ILU0_Preconditioner::Create(SparseMatrix* A)
 	int* ia = m_K->Pointers();
 	int* ja = m_K->Indices();
 
-	MKL_INT ipar[128] = { 0 };
+	int ipar[128] = { 0 };
 	double dpar[128] = { 0.0 };
 
 	// parameters affecting the pre-conditioner
@@ -87,7 +87,7 @@ bool ILU0_Preconditioner::Create(SparseMatrix* A)
 
 	m_bilu0.resize(NNZ);
 	int ierr = 0;
-	dcsrilu0(&N, pa, ia, ja, &m_bilu0[0], ipar, dpar, &ierr);
+//	dcsrilu0(&N, pa, ia, ja, &m_bilu0[0], ipar, dpar, &ierr);
 	if (ierr != 0) return false;
 
 	return true;
@@ -102,11 +102,11 @@ void ILU0_Preconditioner::mult_vector(double* x, double* y)
 	char cvar1 = 'L';
 	char cvar = 'N';
 	char cvar2 = 'U';
-	mkl_dcsrtrsv(&cvar1, &cvar, &cvar2, &ivar, &m_bilu0[0], ia, ja, &x[0], &m_tmp[0]);
+//	mkl_dcsrtrsv(&cvar1, &cvar, &cvar2, &ivar, &m_bilu0[0], ia, ja, &x[0], &m_tmp[0]);
 	cvar1 = 'U';
 	cvar = 'N';
 	cvar2 = 'N';
-	mkl_dcsrtrsv(&cvar1, &cvar, &cvar2, &ivar, &m_bilu0[0], ia, ja, &m_tmp[0], &y[0]);
+//	mkl_dcsrtrsv(&cvar1, &cvar, &cvar2, &ivar, &m_bilu0[0], ia, ja, &m_tmp[0], &y[0]);
 }
 
 //=================================================================================================
@@ -133,7 +133,7 @@ bool ILUT_Preconditioner::Create(SparseMatrix* A)
 	int* ia = m_K->Pointers();
 	int* ja = m_K->Indices();
 
-	MKL_INT ipar[128] = { 0 };
+	int ipar[128] = { 0 };
 	double dpar[128] = { 0.0 };
 
 	if (m_checkZeroDiagonal)
@@ -156,7 +156,7 @@ bool ILUT_Preconditioner::Create(SparseMatrix* A)
 	m_tmp.resize(N, 0.0);
 
 	int ierr;
-	dcsrilut(&ivar, pa, ia, ja, &m_bilut[0], &m_ibilut[0], &m_jbilut[0], &m_fillTol, &m_maxfill, ipar, dpar, &ierr);
+//	dcsrilut(&ivar, pa, ia, ja, &m_bilut[0], &m_ibilut[0], &m_jbilut[0], &m_fillTol, &m_maxfill, ipar, dpar, &ierr);
 	if (ierr != 0) return false;
 
 	return true;
@@ -168,11 +168,11 @@ void ILUT_Preconditioner::mult_vector(double* x, double* y)
 	char cvar1 = 'L';
 	char cvar = 'N';
 	char cvar2 = 'U';
-	mkl_dcsrtrsv(&cvar1, &cvar, &cvar2, &ivar, &m_bilut[0], &m_ibilut[0], &m_jbilut[0], x, &m_tmp[0]);
+//	mkl_dcsrtrsv(&cvar1, &cvar, &cvar2, &ivar, &m_bilut[0], &m_ibilut[0], &m_jbilut[0], x, &m_tmp[0]);
 	cvar1 = 'U';
 	cvar = 'N';
 	cvar2 = 'N';
-	mkl_dcsrtrsv(&cvar1, &cvar, &cvar2, &ivar, &m_bilut[0], &m_ibilut[0], &m_jbilut[0], &m_tmp[0], y);
+//	mkl_dcsrtrsv(&cvar1, &cvar, &cvar2, &ivar, &m_bilut[0], &m_ibilut[0], &m_jbilut[0], &m_tmp[0], y);
 }
 
 

@@ -146,7 +146,7 @@ bool LUSolver::BackSolve(vector<double>& x, vector<double>& b)
 		x[i] = sum/a(i,i);
 	}
 
-	return false;
+	return true;
 }
 
 //-----------------------------------------------------------------------------

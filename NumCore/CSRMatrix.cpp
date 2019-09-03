@@ -28,7 +28,10 @@ SOFTWARE.*/
 #include "stdafx.h"
 #include "CSRMatrix.h"
 #include <assert.h>
+#include <exception>
+#ifdef FEBIO_WITH_MKL
 #include "mkl_spblas.h"
+#endif
 
 CSRMatrix::CSRMatrix() : m_nr(0), m_nc(0), m_offset(0)
 {
@@ -171,16 +174,26 @@ bool CSRMatrix::isAlloc(int i, int j) const
 
 void CSRMatrix::multv(const std::vector<double>& x, std::vector<double>& r)
 {
+#ifdef FEBIO_WITH_MKL
 	if (m_offset == 0)
 		mkl_cspblas_dcsrgemv("N", &m_nr, &m_values[0], &m_rowIndex[0], &m_columns[0], (double*) &x[0], &r[0]);
 	else 
 		mkl_dcsrgemv("N", &m_nr, &m_values[0], &m_rowIndex[0], &m_columns[0], (double*)&x[0], &r[0]);
+#else
+	fprintf(stderr, "FATAL ERROR: CSRMatrix not available without MKL.\n\n");
+	throw std::runtime_error("FATAL ERROR: CSRMatrix not available without MKL.\n\n");
+#endif
 }
 
 void CSRMatrix::multv(const double* x, double* r)
 {
+#ifdef FEBIO_WITH_MKL
 	if (m_offset == 0)
 		mkl_cspblas_dcsrgemv("N", &m_nr, &m_values[0], &m_rowIndex[0], &m_columns[0], (double*)x, r);
 	else
 		mkl_dcsrgemv("N", &m_nr, &m_values[0], &m_rowIndex[0], &m_columns[0], (double*)x, r);
+#else
+	fprintf(stderr, "FATAL ERROR: CSRMatrix not available without MKL.\n\n");
+	throw std::runtime_error("FATAL ERROR: CSRMatrix not available without MKL.\n\n");
+#endif
 }

@@ -54,6 +54,7 @@ protected:
 	bool m_bsymm; // use symmetric mode or not
 
 	// Pardiso control parameters
+	int m_error;
 	int m_iparm[64];
 	int m_maxfct, m_mnum, m_msglvl;
 	double m_dparm[64];

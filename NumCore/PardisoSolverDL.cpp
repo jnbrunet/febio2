@@ -35,6 +35,23 @@ SOFTWARE.*/
 
 
 #ifndef PARDISO
+/* Pardiso prototypes for shared object library version */
+
+#ifdef WIN32
+
+#define pardisoinit_ PARDISOINIT
+#define pardiso_ PARDISO
+
+#endif
+
+extern "C"
+{
+int pardisoinit_(void *, int *, int *, int *, double*, int*);
+
+int pardiso_(void *, int *, int *, int *, int *, int *,
+			 double *, int *, int *, int *, int *, int *,
+			 int *, double *, double *, int *, double*);
+}
 
 //////////////////////////////////////////////////////////////
 // PardisoSolver
@@ -88,12 +105,12 @@ bool PardisoSolver::PreProcess()
 	}
 	//else fprintf(stderr, "PARDISO license check was successful\n\n");
 
-	m_n = m_pA->Size();
+	m_n = m_pA->Rows();
 	m_nnz = m_pA->NonZeroes();
 	m_nrhs = 1;
 
 	// number of processors: use value of OMP_NUM_THREADS
-	m_iparm[2] = m_numthreads;
+//	m_iparm[2] = m_numthreads;
 
 	m_maxfct = 1;	/* Maximum number of numerical factorizations */
 	m_mnum = 1;	/* Which factorization to use */
@@ -125,7 +142,7 @@ bool PardisoSolver::Factor()
 	if (m_error)
 	{
 		fprintf(stderr, "\nERROR during symbolic factorization: ");
-		print_err();
+//		print_err(m_error);
 		exit(2);
 	}
 
@@ -145,7 +162,7 @@ bool PardisoSolver::Factor()
 	if (m_error)
 	{
 		fprintf(stderr, "\nERROR during factorization: ");
-		print_err();
+//		print_err(m_error);
 		exit(2);
 	}
 
@@ -170,7 +187,7 @@ bool PardisoSolver::BackSolve(vector<double>& x, vector<double>& b)
 	if (m_error)
 	{
 		fprintf(stderr, "\nERROR during solution: ");
-		print_err();
+//		print_err(m_error);
 		exit(3);
 	}
 
