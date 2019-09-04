@@ -32,6 +32,12 @@ SOFTWARE.*/
 #include "mkl_spblas.h"
 #endif
 
+#ifndef FEBIO_WITH_MKL
+#define MKL_INT const long long
+#else
+#include <mkl/mkl_types.h>
+#endif
+
 //-----------------------------------------------------------------------------
 // this sort function is defined in qsort.cpp
 void qsort(int n, int* arr, int* indx);
@@ -373,8 +379,8 @@ void CRSSparseMatrix::get(int i0, int j0, int nr, int nc, CSRMatrix& M)
 	M.create(nr, nc, m_offset);
 
 	vector<double>& val = M.values();
-	vector<int>& ind = M.indices();
-	vector<int>& pnt = M.pointers(); assert(pnt.size() == nr + 1);
+	vector<MKL_INT>& ind = M.indices();
+	vector<MKL_INT>& pnt = M.pointers(); assert(pnt.size() == nr + 1);
 
 	// count how many values we'll need to copy
 	int nnz = 0;

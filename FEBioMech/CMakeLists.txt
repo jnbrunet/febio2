@@ -10,3 +10,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOU
 target_include_directories(${PROJECT_NAME} PUBLIC "$<INSTALL_INTERFACE:include>")
 
 target_link_libraries(${PROJECT_NAME} PUBLIC FECore)
+
+if (LINUX)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE LINUX)
+endif ()

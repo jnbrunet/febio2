@@ -28,6 +28,11 @@ SOFTWARE.*/
 #pragma once
 #include <vector>
 
+#ifndef FEBIO_WITH_MKL
+#define MKL_INT const long long
+#else
+#include <mkl/mkl_types.h>
+#endif
 // This class represents a sparse matrix in the row-compressed format (3-array format)
 class CSRMatrix
 {
@@ -72,14 +77,14 @@ public:
 
 public:
 	std::vector<double>& values() { return m_values; }
-	std::vector<int>& indices() { return m_columns; }
-	std::vector<int>& pointers() { return m_rowIndex; }
+	std::vector<MKL_INT>& indices() { return m_columns; }
+	std::vector<MKL_INT>& pointers() { return m_rowIndex; }
 
 private:
-	int		m_nr;		// number of rows
-	int		m_nc;		// number of columns
-	int		m_offset;	// offset (0 or 1)
-	std::vector<int>	m_rowIndex;		// start of row in columns array
-	std::vector<int>	m_columns;		// columns of non-zero entries
+    MKL_INT		m_nr;		// number of rows
+    MKL_INT		m_nc;		// number of columns
+    MKL_INT		m_offset;	// offset (0 or 1)
+	std::vector<MKL_INT>	m_rowIndex;		// start of row in columns array
+	std::vector<MKL_INT>	m_columns;		// columns of non-zero entries
 	std::vector<double>	m_values;		// values of matrix
 };
