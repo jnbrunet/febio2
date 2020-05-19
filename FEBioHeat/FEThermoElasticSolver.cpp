@@ -101,12 +101,12 @@ bool FEThermoElasticSolver::InitEquations()
 //!       I need to move to this method, but since it will
 //!       change the order of some operations I need to make
 //!       sure it won't break anything
-void FEThermoElasticSolver::PrepStep(const FETimeInfo& timeInfo)
+void FEThermoElasticSolver::PrepStep(const FETimeInfo& /*timeInfo*/)
 {
 	zero(m_Ti);
 	zero(m_Di);
 
-	FESolidSolver::PrepStep(timeInfo);
+	FESolidSolver::PrepStep();
 }
 
 //-----------------------------------------------------------------------------

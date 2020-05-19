@@ -11,7 +11,7 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 target_include_directories(${PROJECT_NAME} PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/>")
 target_include_directories(${PROJECT_NAME} PUBLIC "$<INSTALL_INTERFACE:include>")
 
-target_link_libraries(${PROJECT_NAME} PUBLIC FECore FEBioMech FEBioMix FEBioOpt FEBioPlot  NumCore FEBioLib FEBioXML OpenMP::OpenMP_CXX dl)
+target_link_libraries(${PROJECT_NAME} PUBLIC -Wl,--start-group FECore FEBioLib FEBioPlot FEBioMech FEBioMix FEBioXML NumCore FEBioOpt -Wl,--end-group OpenMP::OpenMP_CXX dl)
 
 if (LINUX)
     target_compile_definitions(${PROJECT_NAME} PRIVATE LINUX)

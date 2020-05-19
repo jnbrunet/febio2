@@ -66,7 +66,8 @@ if (FEBIO_WITH_EIGEN)
 endif()
 
 
-add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})
+add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
+target_link_libraries(${PROJECT_NAME} PUBLIC FECore)
 
 if (FEBIO_WITH_PARDISO)
     if (NOT PARDISO_LIB)

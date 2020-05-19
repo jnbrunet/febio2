@@ -143,7 +143,7 @@ bool ConjGradIterSolver::BackSolve(vector<double>& x, vector<double>& b)
 		rho2 = rho1;
 		rho1 = r*r;
 
-		if (m_nprint > 0)
+//		if (m_nprint > 0)
 			fprintf(stderr, "%d: %lg\n", k, sqrt(rho1)/normb);
 	}
 

@@ -625,33 +625,6 @@ protected:
 };
 
 //-----------------------------------------------------------------------------
-//! Intact bond fraction (fatigue)
-class FEPlotIntactBondFraction : public FEDomainData
-{
-public:
-    FEPlotIntactBondFraction(FEModel* pfem) : FEDomainData(PLT_FLOAT, FMT_ITEM){}
-    bool Save(FEDomain& m, FEDataStream& a);
-};
-
-//-----------------------------------------------------------------------------
-//! Fatigued bond fraction (fatigue)
-class FEPlotFatigueBondFraction : public FEDomainData
-{
-public:
-    FEPlotFatigueBondFraction(FEModel* pfem) : FEDomainData(PLT_FLOAT, FMT_ITEM){}
-    bool Save(FEDomain& m, FEDataStream& a);
-};
-
-//-----------------------------------------------------------------------------
-//! Octahedral Plastic Strain
-class FEPlotOctahedralPlasticStrain : public FEDomainData
-{
-public:
-    FEPlotOctahedralPlasticStrain(FEModel* pfem) : FEDomainData(PLT_FLOAT, FMT_ITEM){}
-    bool Save(FEDomain& m, FEDataStream& a);
-};
-
-//-----------------------------------------------------------------------------
 //! Mixture volume fraction
 class FEPlotMixtureVolumeFraction : public FEDomainData
 {

@@ -33,7 +33,7 @@ SOFTWARE.*/
 #endif
 
 #ifndef FEBIO_WITH_MKL
-#define MKL_INT const long long
+#define MKL_INT long long
 #else
 #include <mkl/mkl_types.h>
 #endif

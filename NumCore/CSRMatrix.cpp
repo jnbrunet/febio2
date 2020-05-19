@@ -29,6 +29,7 @@ SOFTWARE.*/
 #include "CSRMatrix.h"
 #include <assert.h>
 #include <exception>
+#include <stdexcept>
 #ifdef FEBIO_WITH_MKL
 #include "mkl_spblas.h"
 #endif

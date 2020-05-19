@@ -124,6 +124,7 @@ bool Configure(const char* szfile)
 						else if (strcmp(szt, "hypre_gmres"       ) == 0) FECoreKernel::SetDefaultSolver(nsolver = HYPRE_GMRES      );
 						else if (strcmp(szt, "stokes"            ) == 0) FECoreKernel::SetDefaultSolver(nsolver = STOKES_SOLVER    );
 						else if (strcmp(szt, "cg_stokes"         ) == 0) FECoreKernel::SetDefaultSolver(nsolver = CG_STOKES_SOLVER );
+						else if (strcmp(szt, "cg"                ) == 0) FECoreKernel::SetDefaultSolver(nsolver = CG_ITERATIVE_SOLVER );
 						else if (strcmp(szt, "schur"             ) == 0) FECoreKernel::SetDefaultSolver(nsolver = SCHUR_SOLVER     );
                         else if (strcmp(szt, "lu"                ) == 0) FECoreKernel::SetDefaultSolver(nsolver = LU_SOLVER        );
 						else { fprintf(stderr, "Invalid linear solver\n"); return false; }
