@@ -352,6 +352,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4267</DisableSpecificWarnings>
       <OpenMPSupport>true</OpenMPSupport>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -401,6 +402,7 @@
     <ClInclude Include="..\..\FECore\Archive.h" />
     <ClInclude Include="..\..\FECore\BC.h" />
     <ClInclude Include="..\..\FECore\BFGSSolver.h" />
+    <ClInclude Include="..\..\FECore\BFGSSolver2.h" />
     <ClInclude Include="..\..\FECore\Callback.h" />
     <ClInclude Include="..\..\FECore\DataRecord.h" />
     <ClInclude Include="..\..\FECore\DataStore.h" />
@@ -415,6 +417,7 @@
     <ClInclude Include="..\..\FECore\FEBodyLoad.h" />
     <ClInclude Include="..\..\FECore\FEBoundaryCondition.h" />
     <ClInclude Include="..\..\FECore\FEBoundingBox.h" />
+    <ClInclude Include="..\..\FECore\FEBox.h" />
     <ClInclude Include="..\..\FECore\FEBroydenStrategy.h" />
     <ClInclude Include="..\..\FECore\FECallBack.h" />
     <ClInclude Include="..\..\FECore\FEClosestPointProjection.h" />
@@ -466,6 +469,7 @@
     <ClInclude Include="..\..\FECore\FEModel.h" />
     <ClInclude Include="..\..\FECore\FEModelComponent.h" />
     <ClInclude Include="..\..\FECore\FEModelData.h" />
+    <ClInclude Include="..\..\FECore\FEModelLoad.h" />
     <ClInclude Include="..\..\FECore\FENewtonSolver.h" />
     <ClInclude Include="..\..\FECore\FENewtonStrategy.h" />
     <ClInclude Include="..\..\FECore\FENLConstraint.h" />
@@ -493,6 +497,7 @@
     <ClInclude Include="..\..\FECore\FESurfaceLoad.h" />
     <ClInclude Include="..\..\FECore\FESurfaceMap.h" />
     <ClInclude Include="..\..\FECore\FESurfacePairConstraint.h" />
+    <ClInclude Include="..\..\FECore\FESurfacePairInteraction.h" />
     <ClInclude Include="..\..\FECore\FETimeInfo.h" />
     <ClInclude Include="..\..\FECore\FETimeStepController.h" />
     <ClInclude Include="..\..\FECore\FETransform.h" />
@@ -510,6 +515,7 @@
     <ClInclude Include="..\..\FECore\mat2d.h" />
     <ClInclude Include="..\..\FECore\mat3d.h" />
     <ClInclude Include="..\..\FECore\mat3d.hpp" />
+    <ClInclude Include="..\..\FECore\mat6d.h" />
     <ClInclude Include="..\..\FECore\MathParser.h" />
     <ClInclude Include="..\..\FECore\matrix.h" />
     <ClInclude Include="..\..\FECore\MatrixOperator.h" />
@@ -524,10 +530,12 @@
     <ClInclude Include="..\..\FECore\sdk.h" />
     <ClInclude Include="..\..\FECore\SparseMatrix.h" />
     <ClInclude Include="..\..\FECore\stdafx.h" />
+    <ClInclude Include="..\..\FECore\sys.h" />
     <ClInclude Include="..\..\FECore\table.h" />
     <ClInclude Include="..\..\FECore\targetver.h" />
     <ClInclude Include="..\..\FECore\tens3d.h" />
     <ClInclude Include="..\..\FECore\tens3d.hpp" />
+    <ClInclude Include="..\..\FECore\tens3dls.hpp" />
     <ClInclude Include="..\..\FECore\tens3drs.hpp" />
     <ClInclude Include="..\..\FECore\tens3ds.hpp" />
     <ClInclude Include="..\..\FECore\tens4d.h" />
@@ -536,8 +544,10 @@
     <ClInclude Include="..\..\FECore\tens4ds.hpp" />
     <ClInclude Include="..\..\FECore\tens5d.h" />
     <ClInclude Include="..\..\FECore\tens5d.hpp" />
+    <ClInclude Include="..\..\FECore\tens5ds.hpp" />
     <ClInclude Include="..\..\FECore\tens6d.h" />
     <ClInclude Include="..\..\FECore\tens6d.hpp" />
+    <ClInclude Include="..\..\FECore\tens6ds.hpp" />
     <ClInclude Include="..\..\FECore\tensor_base.h" />
     <ClInclude Include="..\..\FECore\Timer.h" />
     <ClInclude Include="..\..\FECore\tools.h" />
@@ -563,6 +573,7 @@
     <ClCompile Include="..\..\FECore\FEAnalysis.cpp" />
     <ClCompile Include="..\..\FECore\FEBodyLoad.cpp" />
     <ClCompile Include="..\..\FECore\FEBoundaryCondition.cpp" />
+    <ClCompile Include="..\..\FECore\FEBox.cpp" />
     <ClCompile Include="..\..\FECore\FEBroydenStrategy.cpp" />
     <ClCompile Include="..\..\FECore\FECallback.cpp" />
     <ClCompile Include="..\..\FECore\FEClosestPointProjection.cpp" />
@@ -610,6 +621,7 @@
     <ClCompile Include="..\..\FECore\FEModel.cpp" />
     <ClCompile Include="..\..\FECore\FEModelComponent.cpp" />
     <ClCompile Include="..\..\FECore\FEModelData.cpp" />
+    <ClCompile Include="..\..\FECore\FEModelLoad.cpp" />
     <ClCompile Include="..\..\FECore\FENewtonSolver.cpp" />
     <ClCompile Include="..\..\FECore\FENewtonStrategy.cpp" />
     <ClCompile Include="..\..\FECore\FENLConstraint.cpp" />

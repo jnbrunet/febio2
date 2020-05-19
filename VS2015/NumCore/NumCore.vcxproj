@@ -351,6 +351,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;PARDISO;MKL_ISS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -417,6 +418,8 @@
     <ClInclude Include="..\..\NumCore\Preconditioner.h" />
     <ClInclude Include="..\..\NumCore\PSLDLTSolver.h" />
     <ClInclude Include="..\..\NumCore\RCICGSolver.h" />
+    <ClInclude Include="..\..\NumCore\SchurComplement.h" />
+    <ClInclude Include="..\..\NumCore\SchurSolver.h" />
     <ClInclude Include="..\..\NumCore\SkylineMatrix.h" />
     <ClInclude Include="..\..\NumCore\SkylineSolver.h" />
     <ClInclude Include="..\..\NumCore\stdafx.h" />
@@ -449,6 +452,8 @@
     <ClCompile Include="..\..\NumCore\Preconditioner.cpp" />
     <ClCompile Include="..\..\NumCore\PSLDLTSolver.cpp" />
     <ClCompile Include="..\..\NumCore\RCICGSolver.cpp" />
+    <ClCompile Include="..\..\NumCore\SchurComplement.cpp" />
+    <ClCompile Include="..\..\NumCore\SchurSolver.cpp" />
     <ClCompile Include="..\..\NumCore\SkylineMatrix.cpp" />
     <ClCompile Include="..\..\NumCore\SkylineSolver.cpp" />
     <ClCompile Include="..\..\NumCore\stdafx.cpp" />

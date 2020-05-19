@@ -7,9 +7,7 @@
 # assume that the Intel MKL is installed and that the environment variable MKLROOT is defined
 # (running # the Intel script "compilervars" will set the necessary environment variables).
 # They also assume that you are linking with the Lourakis levmar routine, which can be
-# downloaded at http://users.ics.forth.gr/~lourakis/levmar/
-# and the GNU Scientific Library (GSL), which can be downloaded at
-# https://www.gnu.org/software/gsl/
+# downloaded at http://users.ics.forth.gr/~lourakis/levmar/.
 # The main configuration files are lnx64d, osxd, lnx32 and sky.  The other are derived from
 # those.
 # sky: Compiles using g++ and uses the default skyline linear solver.  You will need to
@@ -17,16 +15,16 @@
 
 FEBDIR = $(dir $(CURDIR))
 lnx64:  PLAT = lnx64
+lnx64sh: PLAT = lnx64sh
 lnx64d: PLAT = lnx64d
 lnx64g: PLAT = lnx64g
 lnx64s: PLAT = lnx64s
+lnx64gs: PLAT = lnx64gs
 lnx32:  PLAT = lnx32
 gcc:    PLAT = gcc
 gcc64:    PLAT = gcc64
 gcc64g:    PLAT = gcc64g
 osx:    PLAT = osx
-osxg++:    PLAT = osxg++
-osxg++g:    PLAT = osxg++g
 osxd:   PLAT = osxd
 osxs:   PLAT = osxs
 clang: PLAT = clang
@@ -35,11 +33,10 @@ sky:    PLAT = sky
 lnx64clean:  PLAT = lnx64
 lnx32clean:  PLAT = lnx32
 osxclean:    PLAT = osx
-osxg++clean:    PLAT = osxg++
-osxg++gclean:    PLAT = osxg++g
 lnx64dclean: PLAT = lnx64d
 lnx64gclean: PLAT = lnx64g
 lnx64sclean: PLAT = lnx64s
+lnx64gsclean: PLAT = lnx64gs
 gccclean:    PLAT = gcc
 gcc64clean:    PLAT = gcc64
 gcc64gclean:    PLAT = gcc64g
@@ -52,7 +49,7 @@ skyclean:    PLAT = sky
 export PLAT
 export FEBDIR
 
-lnx64 lnx64d lnx64g lnx64s lnx32 gcc gcc64 gcc64g osx osxd osxg++ osxg++g osxs clang llvm sky:
+lnx64 lnx64d lnx64g lnx64s lnx64gs lnx32 gcc gcc64 gcc64g osx osxd osxs clang llvm sky:
 	( cd $(PLAT)/FEBioLib;		$(MAKE) -f ../../Makelibs.mk )
 	( cd $(PLAT)/FEBioPlot;		$(MAKE) -f ../../Makelibs.mk )
 	( cd $(PLAT)/FEBioXML;		$(MAKE) -f ../../Makelibs.mk )
@@ -65,7 +62,20 @@ lnx64 lnx64d lnx64g lnx64s lnx32 gcc gcc64 gcc64g osx osxd osxg++ osxg++g osxs c
 	( cd $(PLAT)/FEBioFluid;	$(MAKE) -f ../../Makelibs.mk )
 	( cd $(PLAT)/FEBio2;		$(MAKE) -f ../../febio2.mk )
 
-lnx64clean lnx32clean osxclean lnx64dclean lnx64gclean lnx64sclean gccclean gcc64clean gcc64gclean osxdclean osxg++clean osxg++gclean osxsclean clangclean llvmclean skyclean:
+lnx64sh:
+	( cd $(PLAT)/FEBioLib;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FEBioPlot;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FEBioXML;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/NumCore;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FECore;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FEBioMix;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FEBioMech;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FEBioOpt;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FEBioTest;		$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FEBioFluid;	$(MAKE) -f ../../MakelibsShared.mk )
+	( cd $(PLAT)/FEBio2;		$(MAKE) -f ../../febio2Shared.mk )
+
+lnx64clean lnx32clean osxclean lnx64dclean lnx64gclean lnx64sclean lnx64gsclean gccclean gcc64clean gcc64gclean osxdclean osxsclean clangclean llvmclean skyclean:
 	( cd $(PLAT)/FEBioLib;		$(MAKE) -f ../../Makelibs.mk clean )
 	( cd $(PLAT)/FEBioPlot;		$(MAKE) -f ../../Makelibs.mk clean )
 	( cd $(PLAT)/FEBioXML;		$(MAKE) -f ../../Makelibs.mk clean )
@@ -79,4 +89,4 @@ lnx64clean lnx32clean osxclean lnx64dclean lnx64gclean lnx64sclean gccclean gcc6
 	( cd $(PLAT)/FEBio2;		$(MAKE) -f ../../febio2.mk clean )
 
 
-.PHONY: lnx64 lnx32 osx lnx64d lnx64g lnx64s gcc gcc64 gcc64g osxd osxs osxg++ osxg++g clang llvm sky
+.PHONY: lnx64 lnx32 osx lnx64d lnx64g lnx64s lnx64gs gcc gcc64 gcc64g osxd osxs clang llvm sky

@@ -48,9 +48,6 @@ SOFTWARE.*/
 #include "FEElasticMixture.h"
 #include "FEElasticMultigeneration.h"
 #include "FEEllipsoidalFiberDistribution.h"
-#include "FEFatigueMaterial.h"
-#include "FEReactiveFatigue.h"
-#include "FEReactivePlasticity.h"
 #include "FEFiberExpPow.h"
 #include "FEFiberExpPowUncoupled.h"
 #include "FEFiberNeoHookean.h"
@@ -374,9 +371,6 @@ REGISTER_FECORE_CLASS(FEDamageCriterionVMS                 , FEMATERIAL_ID, "DC 
 REGISTER_FECORE_CLASS(FEDamageCriterionMSS                 , FEMATERIAL_ID, "DC max shear stress"          );
 REGISTER_FECORE_CLASS(FEDamageCriterionMNS                 , FEMATERIAL_ID, "DC max normal stress"         );
 REGISTER_FECORE_CLASS(FEDamageCriterionMNLS                , FEMATERIAL_ID, "DC max normal Lagrange strain");
-REGISTER_FECORE_CLASS(FEFatigueMaterial                    , FEMATERIAL_ID, "reactive fatigue"             );
-REGISTER_FECORE_CLASS(FEReactiveFatigue                    , FEMATERIAL_ID, "reactive fatigue 2"           );
-REGISTER_FECORE_CLASS(FEReactivePlasticity                 , FEMATERIAL_ID, "reactive plasticity"          );
 
 //-----------------------------------------------------------------------------
 // domain classes
@@ -501,9 +495,6 @@ REGISTER_FECORE_CLASS(FEPlotShellThickness       , FEPLOTDATA_ID, "shell thickne
 REGISTER_FECORE_CLASS(FEPlotShellDirector        , FEPLOTDATA_ID, "shell director"        );
 REGISTER_FECORE_CLASS(FEPlotDamage               , FEPLOTDATA_ID, "damage"                );
 REGISTER_FECORE_CLASS(FEPlotNestedDamage         , FEPLOTDATA_ID, "nested damage"         );
-REGISTER_FECORE_CLASS(FEPlotIntactBondFraction   , FEPLOTDATA_ID, "intact bond fraction"  );
-REGISTER_FECORE_CLASS(FEPlotFatigueBondFraction  , FEPLOTDATA_ID, "fatigue bond fraction" );
-REGISTER_FECORE_CLASS(FEPlotOctahedralPlasticStrain, FEPLOTDATA_ID, "octahedral plastic strain");
 REGISTER_FECORE_CLASS(FEPlotMixtureVolumeFraction, FEPLOTDATA_ID, "volume fraction"       );
 REGISTER_FECORE_CLASS(FEPlotUT4NodalStresses     , FEPLOTDATA_ID, "ut4 nodal stress"      );
 REGISTER_FECORE_CLASS(FEPlotShellStrain          , FEPLOTDATA_ID, "shell strain"          );

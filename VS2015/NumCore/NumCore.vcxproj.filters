@@ -72,6 +72,9 @@
     <ClInclude Include="..\..\NumCore\FGMRESSolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\NumCore\BIPNSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\NumCore\CG_Stokes_Solver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -81,28 +84,31 @@
     <ClInclude Include="..\..\NumCore\CompactUnSymmMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\NumCore\CSRMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\NumCore\FGMRES_ILU0_Solver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\NumCore\FGMRES_ILUT_Solver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\NumCore\HypreGMRESsolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\NumCore\Preconditioner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\NumCore\SchurComplement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\NumCore\SchurSolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\NumCore\StokesPreconditioner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\NumCore\StokesSolver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\NumCore\BIPNSolver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\NumCore\HypreGMRESsolver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\NumCore\CSRMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -161,6 +167,9 @@
     <ClCompile Include="..\..\NumCore\FGMRESSolver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\NumCore\BIPNSolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\NumCore\CG_Stokes_Solver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -170,28 +179,31 @@
     <ClCompile Include="..\..\NumCore\CompactUnSymmMatrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\NumCore\CSRMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\NumCore\FGMRES_ILU0_Solver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\NumCore\FGMRES_ILUT_Solver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\NumCore\HypreGMRESsolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\NumCore\Preconditioner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\NumCore\SchurComplement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\NumCore\SchurSolver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\NumCore\StokesPreconditioner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\NumCore\StokesSolver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\NumCore\BIPNSolver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\NumCore\HypreGMRESsolver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\NumCore\CSRMatrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
